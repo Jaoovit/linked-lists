@@ -112,6 +112,20 @@ class LinkedList {
     console.log(undefined);
     return undefined;
   }
+
+  toString() {
+    let current = this.head;
+    let i = 1;
+    let string = String(current.value);
+    while (i < this.length) {
+      current = current.next;
+      string = string.concat("->", String(current.value));
+      i++;
+    }
+    string = string.concat("->", null);
+    console.log(string);
+    return string;
+  }
 }
 
 const list = new LinkedList();
@@ -122,3 +136,4 @@ list.find(1);
 
 console.log(list);
 console.log(list.at(0));
+console.log(list.toString());
