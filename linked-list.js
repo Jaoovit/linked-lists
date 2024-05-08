@@ -40,6 +40,21 @@ class LinkedList {
     this.length++;
     return this;
   }
+
+  size() {
+    console.log(this.length);
+    return this.length;
+  }
+
+  headPart() {
+    console.log(this.head);
+    return this.head;
+  }
+
+  tailPart() {
+    console.log(this.tail);
+    return this.tail;
+  }
 }
 
 const list = new LinkedList();
