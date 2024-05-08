@@ -82,6 +82,21 @@ class LinkedList {
     this.length--;
     console.log(list);
   }
+
+  contains(value) {
+    let current = this.head;
+    let i = 0;
+    while (i < this.length) {
+      if (current.value === value) {
+        console.log(true);
+        return true;
+      }
+      current = current.next;
+      i++;
+    }
+    console.log(false);
+    return false;
+  }
 }
 
 const list = new LinkedList();
