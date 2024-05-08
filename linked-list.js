@@ -97,12 +97,28 @@ class LinkedList {
     console.log(false);
     return false;
   }
+
+  find(value) {
+    let current = this.head;
+    let i = 0;
+    while (i < this.length) {
+      if (current.value === value) {
+        console.log(value);
+        return value;
+      }
+      current = current.next;
+      i++;
+    }
+    console.log(undefined);
+    return undefined;
+  }
 }
 
 const list = new LinkedList();
 
 list.append(1);
 list.preepend(2);
+list.find(1);
 
 console.log(list);
 console.log(list.at(0));
