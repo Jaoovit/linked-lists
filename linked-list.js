@@ -55,6 +55,18 @@ class LinkedList {
     console.log(this.tail);
     return this.tail;
   }
+
+  at(index) {
+    let i = 0;
+    let current = this.head;
+    if (index < 0 || index >= this.length) return undefined;
+    if (index == 0) return this.head;
+    while (i < index) {
+      current = current.next;
+      i++;
+    }
+    console.log(current);
+  }
 }
 
 const list = new LinkedList();
@@ -63,3 +75,4 @@ list.append(1);
 list.preepend(2);
 
 console.log(list);
+console.log(list.at(0));
