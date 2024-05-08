@@ -27,7 +27,7 @@ class LinkedList {
     return this;
   }
 
-  preepend(value) {
+  prepend(value) {
     const newNode = new Node(value);
 
     if (this.length === 0) {
@@ -126,13 +126,61 @@ class LinkedList {
     console.log(string);
     return string;
   }
+
+  insertAt(value, index) {
+    if (index < 0 || index > this.length) return undefined;
+    if (index === 0) {
+      this.prepend(value);
+      return;
+    }
+    if (index === this.length - 1) {
+      console.log(this.append(value));
+      return;
+    }
+    const newNode = new Node(value);
+    let insert = this.head;
+    let prev;
+    let i = 0;
+    while (i < index) {
+      prev = insert;
+      insert = insert.next;
+      i++;
+    }
+    prev.next = newNode;
+    newNode.next = insert;
+    return this;
+  }
+
+  removeAt(index) {
+    let remove = this.head;
+    let prev;
+    let i = 0;
+    if (index < 0 || index > this.length) return undefined;
+    if (index === 0) {
+      this.head = remove.next;
+      remove.next = null;
+      this.length--;
+      console.log(remove);
+      return;
+    }
+    while (i < index) {
+      prev = remove;
+      remove = remove.next;
+      i++;
+    }
+    prev.next = remove.next;
+    this.length--;
+    console.log(remove);
+  }
 }
 
 const list = new LinkedList();
 
 list.append(1);
-list.preepend(2);
+list.prepend(2);
 list.find(1);
+list.insertAt(3, 1);
+list.removeAt(0);
 
 console.log(list);
 console.log(list.at(0));
